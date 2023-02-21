@@ -1,5 +1,3 @@
-_G.key = ""
-
 local repo = 'https://raw.githubusercontent.com/Koro-Hub/MainUi/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
@@ -142,6 +140,8 @@ local playersChecking = {
 for iiiiiiii, vv1v1 in pairs(playersChecking) do
     if vv1v1 == game.Players.LocalPlayer.UserId and _G.key == iiiiiiii then
         _G.Playing = true
+    else
+        game.Players.LocalPlayer:Kick("You Get Banned")
     end
 end
 
