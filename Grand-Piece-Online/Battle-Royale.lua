@@ -97,7 +97,7 @@ _G.Playing = false
 
 local playersChecking = {
     ["eL46o68A1F3"] = 2818752071,
-    ["3Kg956l5kPu"] = 4016331422
+    ["3Kg956l5kPu"] = 3121868432
 }
 
 -- for i, v in pairs(playersChecking) do
