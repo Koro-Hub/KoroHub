@@ -1,5 +1,3 @@
-_G.meow = false
-
 local repo = 'https://raw.githubusercontent.com/Koro-Hub/MainUi/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
