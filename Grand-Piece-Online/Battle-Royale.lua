@@ -18,20 +18,20 @@ local Window = Library:CreateWindow({
 
 Library:Notify("Loading...")
 
-_G.Playing = false
+-- _G.Playing = false
 
-local playersChecking = {
-    ["eL46o68A1F3"] = 2818752071,
-    ["3Kg956l5kPu"] = 3121868432
-}
+-- local playersChecking = {
+--     ["eL46o68A1F3"] = 2818752071,
+--     ["3Kg956l5kPu"] = 3121868432
+-- }
 
-for iiiiiiii, vv1v1 in pairs(playersChecking) do
-    if game.Players.LocalPlayer.UserId == vv1v1 then
-        _G.Playing = true
-    elseif game.Players.LocalPlayer.UserId ~= vv1v1 then
-        game.Players.LocalPlayer:Kick("You Get Banned")
-    end
-end
+-- for iiiiiiii, vv1v1 in pairs(playersChecking) do
+--     if game.Players.LocalPlayer.UserId == vv1v1 then
+--         _G.Playing = true
+--     elseif game.Players.LocalPlayer.UserId ~= vv1v1 then
+--         game.Players.LocalPlayer:Kick("You Get Banned")
+--     end
+-- end
 
 repeat
     task.wait()
