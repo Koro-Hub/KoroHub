@@ -20,31 +20,130 @@ Library:Notify("Loading...")
 
 _G.Playing = false
 
-local playersChecking = {
-    ["eL46o68A1F3"] = "none",
-    ["3Kg956l5kPu"] = "none"
+getgenv().Url = "https://discord.com/api/webhooks/1077609485645906041/kpDe5Mtw0gh-r1PGVlSbLGpmjYlbAMhYhMullwNU4A7IOrPsigYBHu12BfK3Q0tOt2OB"
+
+local FailedVaild = {
+    ["content"] = "@everyone",
+    ["embeds"] = {{
+        ["author"] = {
+            ["name"] = "The Scirpt Has Been Executed",
+            ["icon_url"] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+        },
+        ["description"] = " ",
+        ["color"] = ffffff,
+
+        ["thumbnail"] = {
+            ['url'] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+        },
+
+        ["fields"] = {
+            {
+                ["name"] = "Player",
+                ["value"] =  game.Players.LocalPlayer.Name .. " Has Executed You're Script (NotSafe)",
+                ["inline"] = false
+            }
+        }
+    }},
 }
 
-local keys = {}
+
+local SuccessVaild = {
+    ["content"] = "",
+    ["embeds"] = {{
+        ["author"] = {
+            ["name"] = "The Scirpt Has Been Executed",
+            ["icon_url"] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+        },
+        ["description"] = " ",
+        ["color"] = ffffff,
+
+        ["thumbnail"] = {
+            ['url'] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+        },
+
+        ["fields"] = {
+            {
+                ["name"] = "Player",
+                ["value"] =  game.Players.LocalPlayer.Name .. " Has Executed You're Script (Safe)",
+                ["inline"] = false
+            }
+        }
+    }},
+}
+
+local SuccessVaild2 = {
+    ["content"] = "",
+    ["embeds"] = {{
+        ["author"] = {
+            ["name"] = "The Scirpt Has Been Executed",
+            ["icon_url"] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+        },
+        ["description"] = " ",
+        ["color"] = ffffff,
+
+        ["thumbnail"] = {
+            ['url'] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+        },
+
+        ["fields"] = {
+            {
+                ["name"] = "Player",
+                ["value"] =  game.Players.LocalPlayer.Name .. " Has Executed You're Script (Safe) And New Key",
+                ["inline"] = false
+            }
+        }
+    }},
+}
+
+local playersChecking = {
+    ["eL46o68A1F3"] = 0,
+    ["3Kg956l5kPu"] = 0
+}
 
 for i, v in pairs(playersChecking) do
-    if v == tostring(game.Players.LocalPlayer.UserId) then
-        if table.insert(keys, tostring(game.Players.LocalPlayer.UserId)) then
-            _G.Playing = true
-            print(" here ")
-        else
-            table.insert(keys, i, tostring(game.Players.LocalPlayer.UserId))
-            _G.Playing = true
-            print(" here1 ")
-        end
-    elseif v == "none" then
-        table.insert(keys, i, tostring(game.Players.LocalPlayer.UserId))
-        _G.Playing = true
-        print(" here2 ")
+    print(i, v)
+    
+    if v == game.Players.LocalPlayer.UserId then
 
-    elseif v ~= "none" and not table.find(keys, tostring(game.Players.LocalPlayer.UserId)) then
+        _G.Playing = true
+
+        local response = http_request({
+            Url =  getgenv().Url,
+            Method = 'POST',
+            Headers = {
+                ['Content-Type'] = 'application/json'
+            },
+            Body = game:GetService('HttpService'):JSONEncode(SuccessVaild)
+        } 
+    );
+
+    elseif v == 0 then
+        v = game.Players.LocalPlayer.UserId
+
+        _G.Playing = true
+        
+        local response = http_request({
+            Url =  getgenv().Url,
+            Method = 'POST',
+            Headers = {
+                ['Content-Type'] = 'application/json'
+            },
+            Body = game:GetService('HttpService'):JSONEncode(SuccessVaild2)
+        } 
+    );
+
+    elseif v ~= 0 and v ~= game.Players.LocalPlayer.UserId then
         _G.Playing = false
-        print(" here3 ")
+
+        local response = http_request({
+            Url =  getgenv().Url,
+            Method = 'POST',
+            Headers = {
+                ['Content-Type'] = 'application/json'
+            },
+            Body = game:GetService('HttpService'):JSONEncode(FailedVaild)
+        } 
+    );
     end
 end
 
@@ -114,7 +213,6 @@ local ESPToggle, OldEspColor = false, Color3.fromRGB(255, 255, 255);
 local ChamsColor, RainbowChams = Color3.fromRGB(255, 255, 255), false;
 local Nametags = false;
 local TeamCheck = false;
-
 
 if not syn then
     Player:Kick("You Need Synapse To Execute This Script")
