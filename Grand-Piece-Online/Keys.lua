@@ -1,6 +1,6 @@
 local favTable = {
-    ["eL46o68A1F3"] = "none",
-    ["3Kg956l5kPu"] = "none"
+    [0] = "eL46o68A1F3",
+    [0] = "3Kg956l5kPu"
 }
 
 return favTable
