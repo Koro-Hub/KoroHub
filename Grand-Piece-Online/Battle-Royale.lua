@@ -26,7 +26,7 @@ local playersChecking = {
 }
 
 for iiiiiiii, vv1v1 in pairs(playersChecking) do
-    if game.Players.LocalPlayer.UserId == vv1v1then
+    if game.Players.LocalPlayer.UserId == vv1v1 then
         _G.Playing = true
     elseif game.Players.LocalPlayer.UserId ~= vv1v1 then
         game.Players.LocalPlayer:Kick("You Get Banned")
@@ -35,7 +35,7 @@ end
 
 repeat
     task.wait()
-until game:IsLoaded() and _G.Playing == true
+until game:IsLoaded()
 
 -- You can suggest changes with a pull request or something
 
