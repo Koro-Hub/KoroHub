@@ -1,3 +1,5 @@
+_G.key = ""
+
 local repo = 'https://raw.githubusercontent.com/Koro-Hub/MainUi/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
@@ -20,130 +22,126 @@ Library:Notify("Loading...")
 
 _G.Playing = false
 
-getgenv().Url = "https://discord.com/api/webhooks/1077609485645906041/kpDe5Mtw0gh-r1PGVlSbLGpmjYlbAMhYhMullwNU4A7IOrPsigYBHu12BfK3Q0tOt2OB"
+-- getgenv().Url = "https://discord.com/api/webhooks/1077609485645906041/kpDe5Mtw0gh-r1PGVlSbLGpmjYlbAMhYhMullwNU4A7IOrPsigYBHu12BfK3Q0tOt2OB"
 
-local FailedVaild = {
-    ["content"] = "@everyone",
-    ["embeds"] = {{
-        ["author"] = {
-            ["name"] = "The Scirpt Has Been Executed",
-            ["icon_url"] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
-        },
-        ["description"] = " ",
-        ["color"] = ffffff,
+-- local FailedVaild = {
+--     ["content"] = "@everyone",
+--     ["embeds"] = {{
+--         ["author"] = {
+--             ["name"] = "The Scirpt Has Been Executed",
+--             ["icon_url"] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+--         },
+--         ["description"] = " ",
+--         ["color"] = ffffff,
 
-        ["thumbnail"] = {
-            ['url'] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
-        },
+--         ["thumbnail"] = {
+--             ['url'] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+--         },
 
-        ["fields"] = {
-            {
-                ["name"] = "Player",
-                ["value"] =  game.Players.LocalPlayer.Name .. " Has Executed You're Script (NotSafe)",
-                ["inline"] = false
-            }
-        }
-    }},
-}
+--         ["fields"] = {
+--             {
+--                 ["name"] = "Player",
+--                 ["value"] =  game.Players.LocalPlayer.Name .. " Has Executed You're Script (NotSafe)",
+--                 ["inline"] = false
+--             }
+--         }
+--     }},
+-- }
 
 
-local SuccessVaild = {
-    ["content"] = "",
-    ["embeds"] = {{
-        ["author"] = {
-            ["name"] = "The Scirpt Has Been Executed",
-            ["icon_url"] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
-        },
-        ["description"] = " ",
-        ["color"] = ffffff,
+-- local SuccessVaild = {
+--     ["content"] = "",
+--     ["embeds"] = {{
+--         ["author"] = {
+--             ["name"] = "The Scirpt Has Been Executed",
+--             ["icon_url"] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+--         },
+--         ["description"] = " ",
+--         ["color"] = ffffff,
 
-        ["thumbnail"] = {
-            ['url'] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
-        },
+--         ["thumbnail"] = {
+--             ['url'] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+--         },
 
-        ["fields"] = {
-            {
-                ["name"] = "Player",
-                ["value"] =  game.Players.LocalPlayer.Name .. " Has Executed You're Script (Safe)",
-                ["inline"] = false
-            }
-        }
-    }},
-}
+--         ["fields"] = {
+--             {
+--                 ["name"] = "Player",
+--                 ["value"] =  game.Players.LocalPlayer.Name .. " Has Executed You're Script (Safe)",
+--                 ["inline"] = false
+--             }
+--         }
+--     }},
+-- }
 
-local SuccessVaild2 = {
-    ["content"] = "",
-    ["embeds"] = {{
-        ["author"] = {
-            ["name"] = "The Scirpt Has Been Executed",
-            ["icon_url"] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
-        },
-        ["description"] = " ",
-        ["color"] = ffffff,
+-- local SuccessVaild2 = {
+--     ["content"] = "",
+--     ["embeds"] = {{
+--         ["author"] = {
+--             ["name"] = "The Scirpt Has Been Executed",
+--             ["icon_url"] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+--         },
+--         ["description"] = " ",
+--         ["color"] = ffffff,
 
-        ["thumbnail"] = {
-            ['url'] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
-        },
+--         ["thumbnail"] = {
+--             ['url'] = "https://cdn.discordapp.com/attachments/885585545038798858/892874252070551562/355d1bd4d0a50a086b6f36ebb49b954f.jpg",
+--         },
 
-        ["fields"] = {
-            {
-                ["name"] = "Player",
-                ["value"] =  game.Players.LocalPlayer.Name .. " Has Executed You're Script (Safe) And New Key",
-                ["inline"] = false
-            }
-        }
-    }},
-}
+--         ["fields"] = {
+--             {
+--                 ["name"] = "Player",
+--                 ["value"] =  game.Players.LocalPlayer.Name .. " Has Executed You're Script (Safe) And New Key",
+--                 ["inline"] = false
+--             }
+--         }
+--     }},
+-- }
 
 local playersChecking = {
-    ["eL46o68A1F3"] = 0,
-    ["3Kg956l5kPu"] = 0
+    ["eL46o68A1F3"] = 2818752071,
+    ["3Kg956l5kPu"] = 4016331422
 }
 
-for i, v in pairs(playersChecking) do
-    print(i, v)
+-- for i, v in pairs(playersChecking) do
+--     print(i, v)
     
-    if v == game.Players.LocalPlayer.UserId then
+--     if v == game.Players.LocalPlayer.UserId then
 
-        _G.Playing = true
+--         _G.Playing = true
 
-        local response = http_request({
-            Url =  getgenv().Url,
-            Method = 'POST',
-            Headers = {
-                ['Content-Type'] = 'application/json'
-            },
-            Body = game:GetService('HttpService'):JSONEncode(SuccessVaild)
-        } 
-    );
+--     elseif v == 0 then
+--         v = game.Players.LocalPlayer.UserId
 
-    elseif v == 0 then
-        v = game.Players.LocalPlayer.UserId
-
-        _G.Playing = true
+--         _G.Playing = true
         
-        local response = http_request({
-            Url =  getgenv().Url,
-            Method = 'POST',
-            Headers = {
-                ['Content-Type'] = 'application/json'
-            },
-            Body = game:GetService('HttpService'):JSONEncode(SuccessVaild2)
-        } 
-    );
+--         local response = http_request({
+--             Url =  getgenv().Url,
+--             Method = 'POST',
+--             Headers = {
+--                 ['Content-Type'] = 'application/json'
+--             },
+--             Body = game:GetService('HttpService'):JSONEncode(SuccessVaild2)
+--         } 
+--     );
 
-    elseif v ~= 0 and v ~= game.Players.LocalPlayer.UserId then
-        _G.Playing = false
+--     elseif v ~= 0 and v ~= game.Players.LocalPlayer.UserId then
+--         _G.Playing = false
 
-        local response = http_request({
-            Url =  getgenv().Url,
-            Method = 'POST',
-            Headers = {
-                ['Content-Type'] = 'application/json'
-            },
-            Body = game:GetService('HttpService'):JSONEncode(FailedVaild)
-        } 
-    );
+--         local response = http_request({
+--             Url =  getgenv().Url,
+--             Method = 'POST',
+--             Headers = {
+--                 ['Content-Type'] = 'application/json'
+--             },
+--             Body = game:GetService('HttpService'):JSONEncode(FailedVaild)
+--         } 
+--     );
+--     end
+-- end
+
+for iiiiiiii, vv1v1 in pairs(playersChecking) do
+    if vv1v1 == game.Players.LocalPlayer.UserId and _G.key == iiiiiiii then
+        _G.Playing = true
     end
 end
 
