@@ -26,9 +26,9 @@ local playersChecking = {
 }
 
 for iiiiiiii, vv1v1 in pairs(playersChecking) do
-    if game.Players.LocalPlayer.UserId == vv1v1 and _G.meow == iiiiiiii then
+    if game.Players.LocalPlayer.UserId == vv1v1then
         _G.Playing = true
-    elseif vv1v1 ~= game.Players.LocalPlayer.UserId then
+    elseif game.Players.LocalPlayer.UserId ~= vv1v1 then
         game.Players.LocalPlayer:Kick("You Get Banned")
     end
 end
